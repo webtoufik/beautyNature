@@ -1,0 +1,16 @@
+{
+  "name": "beautynature",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Projet Site web beaute",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Toufik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
