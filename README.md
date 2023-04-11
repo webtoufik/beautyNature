@@ -1,2 +1,2 @@
 # beautyNature
-Projet Site web Beauty Nature
+Projet site web Beauty Nature
