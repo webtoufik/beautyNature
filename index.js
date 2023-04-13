@@ -1,7 +1,16 @@
 import express from "express";
 import path from "path";
-import homepageRouter from "./routes/homepageRoute.js";
+import dotenv from "dotenv";
 import connectDB from "./config/connectDB.js";
+import homepageRouter from "./routes/homepageRoute.js";
+import categoryRouter from "./routes/categoryRoute.js";
+import bodyParser from "body-parser";
+
+// Configure dotenv
+dotenv.config();
+
+// Connect to the DB
+connectDB();
 
 const __dirname = path.resolve();
 
@@ -16,11 +25,15 @@ app.set("views", "views");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// Parses the text as url encoded data
+app.use(bodyParser.urlencoded({ extended: true }));
+ 
+// Parses the text as json
+app.use(bodyParser.json());
+
+// Use routers
 app.use(homepageRouter);
-
-// Connect to Database
-connectDB();
-
+app.use(categoryRouter);
 
 // Create server and Listenning
 app.listen(8082, () => {
