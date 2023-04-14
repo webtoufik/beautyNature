@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/connectDB.js";
 import homepageRouter from "./routes/homepageRoute.js";
 import categoryRouter from "./routes/categoryRoute.js";
+import productRouter from "./routes/productRoute.js"
 import bodyParser from "body-parser";
 
 // Configure dotenv
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Use routers
 app.use(homepageRouter);
 app.use(categoryRouter);
+app.use(productRouter);
 
 // Create server and Listenning
 app.listen(8082, () => {
