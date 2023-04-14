@@ -23,13 +23,18 @@ app.set("view engine", "ejs");
 // Set views directory
 app.set("views", "views");
 
-app.use(express.static(path.join(__dirname, "public")));
-
 // Parses the text as url encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
  
 // Parses the text as json
 app.use(bodyParser.json());
+
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap'));// redirect bootstrap
+app.use('/css', express.static(__dirname + '/public/assets/scss'));
+app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
+app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Use routers
 app.use(homepageRouter);

@@ -12,7 +12,7 @@ export const getCategories = async (req, res, next) => {
     // res.status(200).json({ categories });
     res.status(200).render('category/getCategories', {
         title: "CategoryList",
-        categories: {categories},
+        categories: categories,
     });
   };
 
